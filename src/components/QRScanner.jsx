@@ -9,18 +9,19 @@ const QRScanner = ({ onScan }) => {
 
   // Save Scanned Data to Firebase
   const saveData = (scannedData) => {
-    const newScanRef = ref(database, "ScannedData/" + Date.now()); // Using timestamp as a unique ID
+    const timestamp = Date.now();
+    const newScanRef = ref(database, "ScannedData/" + timestamp); 
+  
     set(newScanRef, {
       qrCode: scannedData,
-      timestamp: Date.now(),
+      tubeNo: "", // Placeholder for ESP32 data
+      quantity: "", // Placeholder for ESP32 data
+      timestamp: timestamp,
     })
-      .then(() => {
-        console.log("QR Code data saved successfully!");
-      })
-      .catch((error) => {
-        console.error("Error saving data:", error);
-      });
+      .then(() => console.log("QR Code data saved successfully!"))
+      .catch((error) => console.error("Error saving data:", error));
   };
+  
 
   useEffect(() => {
     let codeReader;

@@ -9,7 +9,7 @@ const AppRoutes = () => {
   return (
     <Router>
       <nav className="flex justify-between bg-gray-800 p-4 text-white">
-        <h1 className="text-xl font-bold">MiniProject</h1>
+        <h1 className="text-xl font-bold">Electronic Vending Machine</h1>
         <div>
           <Link to="/" className="mr-4 hover:underline">Home</Link>
           <Link to="/dashboard" className="hover:underline">Dashboard</Link>
